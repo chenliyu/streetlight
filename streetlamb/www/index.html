@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>路灯管理系统</title>
+
+    <!-- ionic css -->
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+
+    <!-- your app's css -->
+    <link href="css/tabSlideBox.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+
+    <!-- ionic/angularjs scripts -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+	
+	<script src="js/tabSlideBox.js"></script>
+	
+	<!-- your app's script-->
+    <script src="js/app.js" charset="GBK"></script>
+	<!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+  </head>
+
+  <body ng-app="slidebox" animation="slide-left-right-ios7">
+
+    
+
+    <ion-nav-view ng-controller="IndexCtrl"></ion-nav-view>
+	
+	<script id="index.html" type="text/ng-template">
+      <ion-view title="">
+        <ion-content scroll="false">
+          	<tab-slide-box tabs-position="bottom">
+			    	<ion-slide-box show-pager="false" on-slide-changed="slideHasChanged($index)">
+					<!--按照标签项的顺序设置标签页内容-->
+			            <ion-slide>
+			                <h3>任务</h3>
+			            </ion-slide>
+			            <ion-slide>
+			                <h3>设备</h3>
+			            </ion-slide>
+			            <ion-slide>
+			                <h3>指标</h3>
+			            </ion-slide>
+						<ion-slide>
+			                <h3>我的</h3>
+			            </ion-slide>
+			            
+			        </ion-slide-box>
+					<div class="tsb-icons">
+			    		<div class="tsb-ic-wrp">
+							<ion-scroll direction="x" class="tsb-hscroll">
+								<a href="javascript:;" class="{{tab.icon}}" ng-repeat="tab in tabs" on-finish-render="test()">{{tab.text}}</a>
+							</ion-scroll>
+						</div>
+			    	</div>
+          	</tab-slide-box>
+        </ion-content>
+      </ion-view>
+    </script>
+  </body>
+</html>
